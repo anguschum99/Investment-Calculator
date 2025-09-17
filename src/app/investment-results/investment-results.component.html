@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+        <th>Year</th>
       <th>Investment Value</th>
       <th>Interest (Year)</th>
       <th>Total Interest</th>
@@ -12,9 +13,9 @@
     </tr>
   </thead>
   <tbody>
-    @for (result of results; track $index) {
+    @for (result of results; track result.year) {
     <tr>
-      <td>{{ $index + 1 }}</td>
+      <td>{{ result.year }}</td>
       <td>
         {{ result.valueEndOfYear | currency : "USD" : "symbol" : "1.0-0" }}
       </td>
