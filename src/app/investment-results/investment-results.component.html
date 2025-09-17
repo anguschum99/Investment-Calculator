@@ -1,0 +1,32 @@
+@if(!results || results.length === 0) {
+<p class="center">No investment calculated yet.</p>
+} @else {
+<h2 class="center">Investment Results</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Investment Value</th>
+      <th>Interest (Year)</th>
+      <th>Total Interest</th>
+      <th>Invested capital</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (result of results; track $index) {
+    <tr>
+      <td>{{ $index + 1 }}</td>
+      <td>
+        {{ result.valueEndOfYear | currency : "USD" : "symbol" : "1.0-0" }}
+      </td>
+      <td>{{ result.interest | currency : "USD" : "symbol" : "1.0-0" }}</td>
+      <td>
+        {{ result.totalInterest | currency : "USD" : "symbol" : "1.0-0" }}
+      </td>
+      <td>
+        {{ result.totalAmountInvested | currency : "USD" : "symbol" : "1.0-0" }}
+      </td>
+      }
+  </tbody>
+</table>
+
+}
